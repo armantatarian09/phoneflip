@@ -2,6 +2,20 @@
 
 PhoneFlip scores repairable phone listings by comparing asking price, likely repair cost, resale value, seller text, and risk keywords.
 
+## Node.js deployment
+
+This app now includes a simple Node.js server that serves the production build from `dist/`.
+
+Run the following after installing dependencies:
+
+```powershell
+npm install
+npm run build
+npm start
+```
+
+Then open `http://localhost:3000`.
+
 ## Blocket Live Feed
 
 Install the Python feed dependency:
