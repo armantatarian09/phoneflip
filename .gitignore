@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.log
+.chrome-*/
+*.png
+__pycache__/
+*.pyc

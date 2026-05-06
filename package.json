@@ -1,0 +1,22 @@
+{
+  "name": "phoneflip",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "dev:blocket": "set \"VITE_PHONEFLIP_DEALS_URL=http://127.0.0.1:8787/deals?limit=60&max_price=2500&details=false\"&& vite --host 127.0.0.1",
+    "blocket": "python scripts/blocket_feed.py",
+    "build": "vite build",
+    "test:domain": "node scripts/domain_checks.mjs",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "lucide-react": "^0.468.0"
+  },
+  "devDependencies": {}
+}
