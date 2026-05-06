@@ -1,4 +1,4 @@
-export const iphoneGenerations = ["11", "12", "13", "14", "15", "16", "17"];
+export const iphoneGenerations = ["6", "6s", "7", "8", "x", "xr", "xs", "11", "12", "13", "14", "15", "16", "17"];
 
 export const iphoneVariants = ["base", "mini", "Plus", "Pro", "Pro Max"];
 
@@ -18,6 +18,13 @@ export const damageTypes = [
 ];
 
 const baseResaleValues = {
+  6: 450,
+  "6s": 550,
+  7: 700,
+  8: 1100,
+  x: 1300,
+  xr: 1200,
+  xs: 1500,
   11: 1500,
   12: 2000,
   13: 2500,
@@ -28,6 +35,13 @@ const baseResaleValues = {
 };
 
 const defaultRepairByGeneration = {
+  6: { screen: 650, backGlass: 350, battery: 400, chargingPort: 450, faceId: 0, water: 1200, motherboard: 1600, locked: 250, parts: 450, unknown: 600 },
+  "6s": { screen: 700, backGlass: 375, battery: 425, chargingPort: 475, faceId: 0, water: 1300, motherboard: 1650, locked: 250, parts: 500, unknown: 650 },
+  7: { screen: 800, backGlass: 400, battery: 450, chargingPort: 500, faceId: 0, water: 1400, motherboard: 1750, locked: 250, parts: 550, unknown: 700 },
+  8: { screen: 950, backGlass: 550, battery: 600, chargingPort: 700, faceId: 0, water: 1700, motherboard: 1900, locked: 250, parts: 700, unknown: 800 },
+  x: { screen: 1000, backGlass: 600, battery: 700, chargingPort: 750, faceId: 1000, water: 1800, motherboard: 2100, locked: 250, parts: 700, unknown: 800 },
+  xr: { screen: 1100, backGlass: 650, battery: 750, chargingPort: 800, faceId: 1100, water: 1850, motherboard: 2150, locked: 250, parts: 750, unknown: 850 },
+  xs: { screen: 1100, backGlass: 700, battery: 800, chargingPort: 850, faceId: 1200, water: 1900, motherboard: 2250, locked: 250, parts: 800, unknown: 900 },
   11: { screen: 850, backGlass: 450, battery: 550, chargingPort: 650, faceId: 900, water: 1600, motherboard: 1800, locked: 250, parts: 650, unknown: 750 },
   12: { screen: 950, backGlass: 550, battery: 600, chargingPort: 700, faceId: 1000, water: 1700, motherboard: 1900, locked: 250, parts: 700, unknown: 800 },
   13: { screen: 1050, backGlass: 650, battery: 650, chargingPort: 750, faceId: 1100, water: 1800, motherboard: 2100, locked: 250, parts: 750, unknown: 850 },
@@ -88,7 +102,7 @@ export function normalizePricingSettings(settings) {
 export function inferIphoneProfile(...textParts) {
   const text = textParts.filter(Boolean).join(" ");
   const normalized = text.toLocaleLowerCase("sv-SE");
-  const generationMatch = normalized.match(/iphone\s?(1[1-7]|x|xs|xr|se|8)/i);
+  const generationMatch = normalized.match(/iphone\s?(6s|6|7|8|x|xs|xr|se|1[1-7])/i);
   const rawGeneration = generationMatch?.[1]?.toLocaleLowerCase("sv-SE") ?? "";
   const generation = iphoneGenerations.includes(rawGeneration) ? rawGeneration : "";
   const variant = inferVariant(normalized);

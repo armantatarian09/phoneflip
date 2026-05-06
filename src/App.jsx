@@ -1978,7 +1978,7 @@ function SettingsView({ settings, updateSettings, resetSettings }) {
               <tbody>
                 {iphoneGenerations.map((generation) => (
                   <tr key={generation}>
-                    <td>iPhone {generation}</td>
+                    <td>iPhone {generation.toUpperCase()}</td>
                     {iphoneVariants.map((variant) => (
                       <td key={variant}>
                         <InlineNumber value={settings.resaleValues[generation]?.[variant] ?? 0} onChange={(value) => updateResale(generation, variant, value)} />
@@ -2009,7 +2009,7 @@ function SettingsView({ settings, updateSettings, resetSettings }) {
               <thead>
                 <tr>
                   <th>Fel</th>
-                  {iphoneGenerations.map((generation) => <th key={generation}>iPhone {generation}</th>)}
+                  {iphoneGenerations.map((generation) => <th key={generation}>iPhone {generation.toUpperCase()}</th>)}
                 </tr>
               </thead>
               <tbody>
